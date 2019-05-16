@@ -13,16 +13,16 @@ LOG_SETTINGS = dict(
     version=1,
     disable_existing_loggers=False,
     loggers={
-        "sanic.root": {"level": "INFO", "handlers": ["console"]},#, "consolefile"]},
+        "sanic.root": {"level": "INFO", "handlers": ["console", "consolefile"]},
         "sanic.error": {
             "level": "INFO",
-            "handlers": ["error_console"],#, "error_consolefile"],
+            "handlers": ["error_console", "error_consolefile"],
             "propagate": True,
             "qualname": "sanic.error",
         },
         "sanic.access": {
             "level": "INFO",
-            "handlers": ["access_console"],#, "access_consolefile"],
+            "handlers": ["access_console", "access_consolefile"],
             "propagate": True,
             "qualname": "sanic.access",
         },
@@ -43,21 +43,21 @@ LOG_SETTINGS = dict(
             "formatter": "access",
             "stream": sys.stdout,
         },
-#        "consolefile": {
-#            'class': 'logging.FileHandler',
-#            'filename': "/vagrant/console.log",
-#            "formatter": "generic",
-#        },
-#        "error_consolefile": {
-#            'class': 'logging.FileHandler',
-#            'filename': "/vagrant/error.log",
-#            "formatter": "generic",
-#        },
-#        "access_consolefile": {
-#            'class': 'logging.FileHandler',
-#            'filename': "/vagrant/access.log",
-#            "formatter": "access",
-#        },
+        "consolefile": {
+            'class': 'logging.FileHandler',
+            'filename': "console.log",
+            "formatter": "generic",
+        },
+        "error_consolefile": {
+            'class': 'logging.FileHandler',
+            'filename': "error.log",
+            "formatter": "generic",
+        },
+        "access_consolefile": {
+            'class': 'logging.FileHandler',
+            'filename': "access.log",
+            "formatter": "access",
+        },
     },
     formatters={
         "generic": {
